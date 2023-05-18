@@ -1,0 +1,366 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:a="clr-namespace:AppsGPT;assembly=DataService.AppsGPT" xmlns:ioa="clr-namespace:InternalLabs.OpenAI.Activities;assembly=InternalLabs.OpenAI.Activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:udam="clr-namespace:UiPath.DataService.Activities.Models;assembly=UiPath.DataService.Activities.Core" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="グループID" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>675.3333333333334,4285.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="78">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.DataService.Activities</x:String>
+      <x:String>UiPath.DataService.Definition</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>AppsGPT</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Digitization</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>InternalLabs.OpenAI.Activities</x:String>
+      <x:String>UiPath.DataService.Activities.Models</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="57">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Definition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>InternalLabs.OpenAI.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
+      <AssemblyReference>DataService.AppsGPT</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="685.3333333333334,4220.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:IList(a:AppsGPT)" Name="レコード" />
+      <Variable x:TypeArguments="s:String[]" Name="質問リスト" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uda:QueryEntityRecords x:TypeArguments="a:AppsGPT" TotalRecords="{x:Null}" ContinueOnError="False" DisplayName="レコード AppsGPT にクエリを実行" EntityId="4097b109-5ced-ed11-800f-a04a5e321b0a" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="643.3333333333334,225.33333333333334" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_2" OutputRecords="[レコード]" QueriedEntityId="4097b109-5ced-ed11-800f-a04a5e321b0a" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="100">
+      <uda:QueryEntityRecords.FilterArguments>
+        <uda:FilterArgument FilterActivityType="{x:Null}">
+          <uda:FilterArgument.Filter>
+            <uda:GroupFilter Index="0" Operator="AND">
+              <uda:GroupFilter.Filters>
+                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
+                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="GroupId" FieldType="UiPath.DataService.Core.Models.EntityField" Operator="=" ValueIndex="0" />
+                </scg:List>
+              </uda:GroupFilter.Filters>
+              <uda:GroupFilter.Groups>
+                <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
+              </uda:GroupFilter.Groups>
+            </uda:GroupFilter>
+          </uda:FilterArgument.Filter>
+        </uda:FilterArgument>
+      </uda:QueryEntityRecords.FilterArguments>
+      <uda:QueryEntityRecords.FilterValues>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="x:String">[グループID]</InArgument>
+        </scg:List>
+      </uda:QueryEntityRecords.FilterValues>
+    </uda:QueryEntityRecords>
+    <ui:ForEach x:TypeArguments="a:AppsGPT" CurrentIndex="{x:Null}" DisplayName="繰り返し (コレクションの各要素)" sap:VirtualizedContainerService.HintSize="643.3333333333334,3863.3333333333335" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[レコード]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="a:AppsGPT">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="a:AppsGPT" Name="currentItem" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="本文" sap:VirtualizedContainerService.HintSize="606.6666666666666,3735.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="upr:ILocalResource" Name="ダウンロードファイル" />
+              <Variable x:TypeArguments="x:String" Name="ドキュメントテキスト" />
+              <Variable x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" Name="回答リスト" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uda:DownloadFileFromRecordField x:TypeArguments="a:AppsGPT" ContinueOnError="False" DisplayName="ファイルを AppsGPT レコードのフィールドからダウンロード" DownloadedFileResource="[ダウンロードファイル]" EntityId="4097b109-5ced-ed11-800f-a04a5e321b0a" Field="Picture" sap:VirtualizedContainerService.HintSize="564.6666666666666,283.3333333333333" sap2010:WorkflowViewState.IdRef="DownloadFileFromRecordField`1_2" RecordId="[currentItem.Id]" TimeoutInMs="30000">
+              <uda:DownloadFileFromRecordField.FilePath>
+                <InArgument x:TypeArguments="x:String" />
+              </uda:DownloadFileFromRecordField.FilePath>
+            </uda:DownloadFileFromRecordField>
+            <p:DigitizeDocument DocumentObjectModel="{x:Null}" ApplyOcrMigrated="True" ApplyOcrOnPdf="Auto" DegreeOfParallelism="-1" DetectCheckboxes="True" DisplayName="ドキュメントをデジタル化" DocumentPath="[ダウンロードファイル.LocalPath]" DocumentText="[ドキュメントテキスト]" ForceApplyOCR="False" sap:VirtualizedContainerService.HintSize="564.6666666666666,302.6666666666667" sap2010:WorkflowViewState.IdRef="DigitizeDocument_1">
+              <p:DigitizeDocument.OCREngine>
+                <ActivityFunc x:TypeArguments="sd:Image, x:String, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                  <ActivityFunc.Argument1>
+                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                  </ActivityFunc.Argument1>
+                  <ActivityFunc.Argument2>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="PredictionId" />
+                  </ActivityFunc.Argument2>
+                  <p1:CjkOCR Output="{x:Null}" Text="{x:Null}" ApiKey="YOUR_DU_API_KEY" ComputeSkewAngle="False" DisplayName="OCR - 日本語、中国語、韓国語" Endpoint="https://du-jp.uipath.com/cjk-ocr" ExtractWords="True" sap:VirtualizedContainerService.HintSize="312,22" sap2010:WorkflowViewState.IdRef="CjkOCR_1" Image="[Image]" Language="auto" PredictionId="[PredictionId]" Profile="None" Scale="1" Timeout="100000" />
+                </ActivityFunc>
+              </p:DigitizeDocument.OCREngine>
+            </p:DigitizeDocument>
+            <ui:IfElseIf DisplayName="条件分岐 (else if)" sap:VirtualizedContainerService.HintSize="564.6666666666666,920.6666666666666" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+              <ui:IfElseIf.ConditionBlocks>
+                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                  <ui:IfElseIfBlock BlockType="If" Condition="[cint(currentItem.QuestionNum) = 1]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="本文" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:String[]">[質問リスト]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:String[]">[{currentItem.Question1}]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[cint(currentItem.QuestionNum) = 2]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="本文" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:String[]">[質問リスト]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:String[]">[{currentItem.Question1, currentItem.Question2}]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[cint(currentItem.QuestionNum) = 3]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="本文" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:String[]">[質問リスト]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:String[]">[{currentItem.Question1, currentItem.Question2, currentItem.Question3}]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                </sc:BindingList>
+              </ui:IfElseIf.ConditionBlocks>
+            </ui:IfElseIf>
+            <ioa:ExtractAndRespond ContinueOnError="{x:Null}" RawResponse="{x:Null}" SecretToken="{x:Null}" DisplayName="Ask GPT" Endpoint="https://staging.uipath.com/semanticproxy_/api/gptdu" sap:VirtualizedContainerService.HintSize="564.6666666666666,134.66666666666666" sap2010:WorkflowViewState.IdRef="ExtractAndRespond_1" QuestionList="[質問リスト]" ResultList="[回答リスト]" Text="[ドキュメントテキスト]" TimeoutMS="60000" />
+            <ui:IfElseIf DisplayName="条件分岐 (else if)" sap:VirtualizedContainerService.HintSize="564.6666666666666,1720" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+              <ui:IfElseIf.ConditionBlocks>
+                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                  <ui:IfElseIfBlock BlockType="If" Condition="[cint(currentItem.QuestionNum) = 1]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="本文" sap:VirtualizedContainerService.HintSize="383.3333333333333,316" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uda:UpdateEntityRecord x:TypeArguments="a:AppsGPT" InputEntity="{x:Null}" IsInRecordView="{x:Null}" OutputEntity="{x:Null}" VisibleDynamicPropertiesInfo="{x:Null}" ContinueOnError="False" DisplayName="レコード AppsGPT を更新" EntityId="4097b109-5ced-ed11-800f-a04a5e321b0a" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="341.3333333333333,224" sap2010:WorkflowViewState.IdRef="UpdateEntityRecord`1_4" InputEntityInFieldView="[new AppsGPT.AppsGPT() With {  .Answer1 = 回答リスト(0)(&quot;answer&quot;), .Id = currentItem.Id }]" RecordId="[currentItem.Id]" TimeoutInMs="30000">
+                          <uda:UpdateEntityRecord.State>
+                            <udam:RecordState>
+                              <udam:RecordState.SelectedFields>
+                                <scg:List x:TypeArguments="udam:DynamicEntityField" Capacity="3">
+                                  <udam:DynamicEntityField Id="1df18933-5ced-ed11-800f-a04a5e321b0a" Name="Answer1">
+                                    <udam:DynamicEntityField.ArgumentValue>
+                                      <InArgument x:TypeArguments="x:String">[回答リスト(0)("answer")]</InArgument>
+                                    </udam:DynamicEntityField.ArgumentValue>
+                                  </udam:DynamicEntityField>
+                                  <udam:DynamicEntityField Id="faccb53a-5ced-ed11-800f-a04a5e321b0a" Name="Answer2">
+                                    <udam:DynamicEntityField.ArgumentValue>
+                                      <InArgument x:TypeArguments="x:String" />
+                                    </udam:DynamicEntityField.ArgumentValue>
+                                  </udam:DynamicEntityField>
+                                  <udam:DynamicEntityField Id="fbccb53a-5ced-ed11-800f-a04a5e321b0a" Name="Answer3">
+                                    <udam:DynamicEntityField.ArgumentValue>
+                                      <InArgument x:TypeArguments="x:String" />
+                                    </udam:DynamicEntityField.ArgumentValue>
+                                  </udam:DynamicEntityField>
+                                </scg:List>
+                              </udam:RecordState.SelectedFields>
+                            </udam:RecordState>
+                          </uda:UpdateEntityRecord.State>
+                        </uda:UpdateEntityRecord>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[cint(currentItem.QuestionNum) = 2]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="本文" sap:VirtualizedContainerService.HintSize="400,472.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uda:UpdateEntityRecord x:TypeArguments="a:AppsGPT" InputEntity="{x:Null}" IsInRecordView="{x:Null}" OutputEntity="{x:Null}" VisibleDynamicPropertiesInfo="{x:Null}" ContinueOnError="False" DisplayName="レコード AppsGPT を更新" EntityId="4097b109-5ced-ed11-800f-a04a5e321b0a" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="338,362" sap2010:WorkflowViewState.IdRef="UpdateEntityRecord`1_2" InputEntityInFieldView="[new AppsGPT.AppsGPT() With {  .Answer1 = 回答リスト(0)(&quot;answer&quot;),  .Answer2 = 回答リスト(1)(&quot;answer&quot;), .Id = currentItem.Id }]" RecordId="[currentItem.Id]" TimeoutInMs="30000">
+                          <uda:UpdateEntityRecord.State>
+                            <udam:RecordState>
+                              <udam:RecordState.SelectedFields>
+                                <scg:List x:TypeArguments="udam:DynamicEntityField" Capacity="3">
+                                  <udam:DynamicEntityField Id="1df18933-5ced-ed11-800f-a04a5e321b0a" Name="Answer1">
+                                    <udam:DynamicEntityField.ArgumentValue>
+                                      <InArgument x:TypeArguments="x:String">[回答リスト(0)("answer")]</InArgument>
+                                    </udam:DynamicEntityField.ArgumentValue>
+                                  </udam:DynamicEntityField>
+                                  <udam:DynamicEntityField Id="faccb53a-5ced-ed11-800f-a04a5e321b0a" Name="Answer2">
+                                    <udam:DynamicEntityField.ArgumentValue>
+                                      <InArgument x:TypeArguments="x:String">[回答リスト(1)("answer")]</InArgument>
+                                    </udam:DynamicEntityField.ArgumentValue>
+                                  </udam:DynamicEntityField>
+                                  <udam:DynamicEntityField Id="fbccb53a-5ced-ed11-800f-a04a5e321b0a" Name="Answer3">
+                                    <udam:DynamicEntityField.ArgumentValue>
+                                      <InArgument x:TypeArguments="x:String" />
+                                    </udam:DynamicEntityField.ArgumentValue>
+                                  </udam:DynamicEntityField>
+                                </scg:List>
+                              </udam:RecordState.SelectedFields>
+                            </udam:RecordState>
+                          </uda:UpdateEntityRecord.State>
+                        </uda:UpdateEntityRecord>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[cint(currentItem.QuestionNum) = 3]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="本文" sap:VirtualizedContainerService.HintSize="400,472.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uda:UpdateEntityRecord x:TypeArguments="a:AppsGPT" InputEntity="{x:Null}" IsInRecordView="{x:Null}" OutputEntity="{x:Null}" VisibleDynamicPropertiesInfo="{x:Null}" ContinueOnError="False" DisplayName="レコード AppsGPT を更新" EntityId="4097b109-5ced-ed11-800f-a04a5e321b0a" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="338,362" sap2010:WorkflowViewState.IdRef="UpdateEntityRecord`1_3" InputEntityInFieldView="[new AppsGPT.AppsGPT() With {  .Answer1 = 回答リスト(0)(&quot;answer&quot;),  .Answer2 = 回答リスト(1)(&quot;answer&quot;),  .Answer3 = 回答リスト(2)(&quot;answer&quot;), .Id = currentItem.Id }]" RecordId="[currentItem.Id]" TimeoutInMs="30000">
+                          <uda:UpdateEntityRecord.State>
+                            <udam:RecordState>
+                              <udam:RecordState.SelectedFields>
+                                <scg:List x:TypeArguments="udam:DynamicEntityField" Capacity="3">
+                                  <udam:DynamicEntityField Id="1df18933-5ced-ed11-800f-a04a5e321b0a" Name="Answer1">
+                                    <udam:DynamicEntityField.ArgumentValue>
+                                      <InArgument x:TypeArguments="x:String">[回答リスト(0)("answer")]</InArgument>
+                                    </udam:DynamicEntityField.ArgumentValue>
+                                  </udam:DynamicEntityField>
+                                  <udam:DynamicEntityField Id="faccb53a-5ced-ed11-800f-a04a5e321b0a" Name="Answer2">
+                                    <udam:DynamicEntityField.ArgumentValue>
+                                      <InArgument x:TypeArguments="x:String">[回答リスト(1)("answer")]</InArgument>
+                                    </udam:DynamicEntityField.ArgumentValue>
+                                  </udam:DynamicEntityField>
+                                  <udam:DynamicEntityField Id="fbccb53a-5ced-ed11-800f-a04a5e321b0a" Name="Answer3">
+                                    <udam:DynamicEntityField.ArgumentValue>
+                                      <InArgument x:TypeArguments="x:String">[回答リスト(2)("answer")]</InArgument>
+                                    </udam:DynamicEntityField.ArgumentValue>
+                                  </udam:DynamicEntityField>
+                                </scg:List>
+                              </udam:RecordState.SelectedFields>
+                            </udam:RecordState>
+                          </uda:UpdateEntityRecord.State>
+                        </uda:UpdateEntityRecord>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                </sc:BindingList>
+              </ui:IfElseIf.ConditionBlocks>
+            </ui:IfElseIf>
+            <ui:DeleteFileX DisplayName="ファイルを削除" sap:VirtualizedContainerService.HintSize="564.6666666666666,82" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[ダウンロードファイル.LocalPath]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>
